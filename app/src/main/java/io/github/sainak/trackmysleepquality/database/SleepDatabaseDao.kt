@@ -13,6 +13,11 @@ import androidx.room.Update
 @Dao
 interface SleepDatabaseDao {
 
+    /**
+     * create a new row or sleep night
+     *
+     * @param night value to write
+     */
     @Insert
     fun insert(night: SleepNight)
 
