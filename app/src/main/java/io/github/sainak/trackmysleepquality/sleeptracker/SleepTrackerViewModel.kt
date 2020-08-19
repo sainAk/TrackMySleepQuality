@@ -1,10 +1,7 @@
 package io.github.sainak.trackmysleepquality.sleeptracker
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import io.github.sainak.trackmysleepquality.database.SleepDatabaseDao
 import io.github.sainak.trackmysleepquality.database.SleepNight
 import kotlinx.coroutines.Dispatchers
@@ -25,6 +22,18 @@ class SleepTrackerViewModel(
         get() = _navigateToSleepQuality
 
     private var tonight = MutableLiveData<SleepNight?>()
+
+    private val nights = database.getAllNights()
+
+    val startButtonVisible = Transformations.map(tonight) {
+        it == null
+    }
+    val stopButtonVisible = Transformations.map(tonight) {
+        it != null
+    }
+    val clearButtonVisible = Transformations.map(nights) {
+        it?.isNotEmpty()
+    }
 
     init {
         initializeTonight()
@@ -84,7 +93,7 @@ class SleepTrackerViewModel(
         }
     }
 
-    suspend fun clear() {
+    private suspend fun clear() {
         withContext(Dispatchers.IO) {
             database.clear()
         }
