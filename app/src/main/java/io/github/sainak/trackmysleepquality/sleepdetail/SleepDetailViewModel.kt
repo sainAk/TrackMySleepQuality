@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.github.sainak.trackmysleepquality.database.SleepDatabaseDao
 import io.github.sainak.trackmysleepquality.database.SleepNight
-import kotlinx.coroutines.Job
 
 /**
  * ViewModel for SleepQualityFragment.
@@ -22,17 +21,9 @@ class SleepDetailViewModel(
      */
     val database = dataSource
 
-    /** Coroutine setup variables */
-
-    /**
-     * viewModelJob allows us to cancel all coroutines started by this ViewModel.
-     */
-    private val viewModelJob = Job()
-
     private val night: LiveData<SleepNight>
 
     fun getNight() = night
-
 
     init {
         night = database.getNightWithId(sleepNightKey)
@@ -51,16 +42,6 @@ class SleepDetailViewModel(
      */
     val navigateToSleepTracker: LiveData<Boolean?>
         get() = _navigateToSleepTracker
-
-    /**
-     * Cancels all coroutines when the ViewModel is cleared, to cleanup any pending work.
-     *
-     * onCleared() gets called when the ViewModel is destroyed.
-     */
-    override fun onCleared() {
-        super.onCleared()
-        viewModelJob.cancel()
-    }
 
 
     /**
