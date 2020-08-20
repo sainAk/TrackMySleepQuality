@@ -6,8 +6,6 @@ import androidx.lifecycle.ViewModelProvider
 import io.github.sainak.trackmysleepquality.database.SleepDatabaseDao
 
 /**
- * This is pretty much boiler plate code for a ViewModel Factory.
- *
  * Provides the key for the night and the SleepDatabaseDao to the ViewModel.
  */
 class SleepDetailViewModelFactory(

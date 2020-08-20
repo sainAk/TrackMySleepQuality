@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
 
-
 /**
  * These functions create a formatted string that can be set in a TextView.
  */
