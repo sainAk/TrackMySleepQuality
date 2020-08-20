@@ -20,7 +20,6 @@ import io.github.sainak.trackmysleepquality.databinding.FragmentSleepDetailBindi
  * to handle interaction events.
  * Use the [SleepDetailFragment.newInstance] factory method to
  * create an instance of this fragment.
- *
  */
 class SleepDetailFragment : Fragment() {
 
@@ -43,12 +42,9 @@ class SleepDetailFragment : Fragment() {
 
         // Get a reference to the ViewModel associated with this fragment.
         val sleepDetailViewModel =
-            ViewModelProvider(
-                this, viewModelFactory
-            )[SleepDetailViewModel::class.java]
+            ViewModelProvider(this, viewModelFactory)[SleepDetailViewModel::class.java]
 
-        // To use the View Model with data binding, you have to explicitly
-        // give the binding object a reference to it.
+        // Give reference of the ViewModel to the binding object
         binding.sleepDetailViewModel = sleepDetailViewModel
 
         binding.lifecycleOwner = this
@@ -67,6 +63,4 @@ class SleepDetailFragment : Fragment() {
 
         return binding.root
     }
-
-
 }
