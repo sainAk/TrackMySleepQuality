@@ -3,10 +3,12 @@ package io.github.sainak.trackmysleepquality.sleeptracker
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.github.sainak.trackmysleepquality.R
 import io.github.sainak.trackmysleepquality.convertDurationToFormatted
 import io.github.sainak.trackmysleepquality.convertNumericQualityToString
 import io.github.sainak.trackmysleepquality.database.SleepNight
+
 
 @BindingAdapter("sleepDurationFormatted")
 fun TextView.setSleepDurationFormatted(item: SleepNight?) {
@@ -14,7 +16,6 @@ fun TextView.setSleepDurationFormatted(item: SleepNight?) {
         text = convertDurationToFormatted(item.startTimeMilli, item.endTimeMilli, context.resources)
     }
 }
-
 
 @BindingAdapter("sleepQualityString")
 fun TextView.setSleepQualityString(item: SleepNight?) {
@@ -38,4 +39,9 @@ fun ImageView.setSleepImage(item: SleepNight?) {
             }
         )
     }
+}
+
+@BindingAdapter("app:fabTrackingIcon")
+fun setImageResource(fab: FloatingActionButton, trackingStatus: Boolean) {
+    fab.setImageResource(if (trackingStatus) R.drawable.ic_play_24 else R.drawable.ic_pause_24)
 }

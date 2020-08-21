@@ -52,7 +52,7 @@ class SleepTrackerFragment : Fragment() {
 
         // To use the View Model with data binding, you have to explicitly
         // give the binding object a reference to it.
-        binding.sleepTrackerViewModel = sleepTrackerViewModel
+        binding.viewModel = sleepTrackerViewModel
 
         val adapter = SleepNightAdapter(SleepNightListener { nightId ->
             sleepTrackerViewModel.onSleepNightClicked(nightId)

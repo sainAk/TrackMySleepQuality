@@ -30,17 +30,10 @@ class SleepTrackerViewModel(dataSource: SleepDatabaseDao, application: Applicati
     val nights = database.getAllNights()
 
     /**
-     * If tonight has not been set, then the START button should be visible.
+     * A boolean to hold the tracking status
      */
-    val startButtonVisible = Transformations.map(tonight) {
+    val trackingStarted = Transformations.map(tonight) {
         it == null
-    }
-
-    /**
-     * If tonight has been set, then the STOP button should be visible.
-     */
-    val stopButtonVisible = Transformations.map(tonight) {
-        it != null
     }
 
     /**
