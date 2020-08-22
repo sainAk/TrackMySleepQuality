@@ -26,9 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
-        //handle item clicks
         if (id == R.id.action_settings) {
-            //do your action here, im just showing toast
             Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
         }
 

@@ -1,9 +1,7 @@
 package io.github.sainak.trackmysleepquality.sleeptracker
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -13,6 +11,7 @@ import io.github.sainak.trackmysleepquality.R
 import io.github.sainak.trackmysleepquality.database.SleepDatabase
 import io.github.sainak.trackmysleepquality.databinding.FragmentSleepTrackerBinding
 
+
 /**
  * A fragment with buttons to record start and end times for sleep, which are saved in
  * a database. Cumulative data is displayed in a simple scrollable TextView.
@@ -21,6 +20,7 @@ import io.github.sainak.trackmysleepquality.databinding.FragmentSleepTrackerBind
  */
 class SleepTrackerFragment : Fragment() {
 
+    private lateinit var sleepTrackerViewModel: SleepTrackerViewModel
     /**
      * Called when the Fragment is ready to display content to the screen.
      *
@@ -40,14 +40,29 @@ class SleepTrackerFragment : Fragment() {
             inflater, R.layout.fragment_sleep_tracker, container, false
         )
 
+        // Report that this fragment would like to participate in populating
+        setHasOptionsMenu(true)
+
+        /**
+         * Set a hint for whether this fragment's menu should be visible.  This
+         * is useful if you know that a fragment has been placed in your view
+         * hierarchy so that the user can not currently seen it, so any menu items
+         * it has should also not be shown.
+         */
+        //setMenuVisibility(true)
+
         val application = requireNotNull(this.activity).application
 
         // Create an instance of the ViewModel Factory.
         val dataSource = SleepDatabase.getInstance(application).sleepDatabaseDao
         val viewModelFactory = SleepTrackerViewModelFactory(dataSource, application)
 
+        // Specify the current activity as the lifecycle owner of the binding.
+        // This is necessary so that the binding can observe LiveData updates.
+        binding.lifecycleOwner = this
+
         // Get a reference to the ViewModel associated with this fragment.
-        val sleepTrackerViewModel =
+        sleepTrackerViewModel =
             ViewModelProvider(this, viewModelFactory)[SleepTrackerViewModel::class.java]
 
         // To use the View Model with data binding, you have to explicitly
@@ -64,10 +79,6 @@ class SleepTrackerFragment : Fragment() {
                 adapter.submitList(it)
             }
         })
-
-        // Specify the current activity as the lifecycle owner of the binding.
-        // This is necessary so that the binding can observe LiveData updates.
-        binding.lifecycleOwner = this
 
         // Add an Observer on the state variable for showing a Snackbar message
         // when the CLEAR button is pressed.
@@ -116,5 +127,19 @@ class SleepTrackerFragment : Fragment() {
         })
 
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_sleep_tracker, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == R.id.action_clear) {
+            sleepTrackerViewModel.onClear()
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }

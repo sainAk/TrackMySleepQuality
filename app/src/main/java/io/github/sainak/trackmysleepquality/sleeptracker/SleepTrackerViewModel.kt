@@ -141,7 +141,7 @@ class SleepTrackerViewModel(dataSource: SleepDatabaseDao, application: Applicati
     }
 
     /**
-     * Executes when the START button is clicked.
+     * Start tracking sleep
      */
     fun onStart() {
         viewModelScope.launch {
@@ -154,7 +154,7 @@ class SleepTrackerViewModel(dataSource: SleepDatabaseDao, application: Applicati
     }
 
     /**
-     * Executes when the STOP button is clicked.
+     * Stop tracking sleep
      */
     fun onStop() {
         viewModelScope.launch {
@@ -171,7 +171,7 @@ class SleepTrackerViewModel(dataSource: SleepDatabaseDao, application: Applicati
     }
 
     /**
-     * Executes when the CLEAR button is clicked.
+     * Clear all data from the db
      */
     fun onClear() {
         viewModelScope.launch {
