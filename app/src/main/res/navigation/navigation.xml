@@ -2,7 +2,6 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation"
     app:startDestination="@id/sleep_tracker_fragment">
 
     <fragment
@@ -41,7 +40,7 @@
     <fragment
         android:id="@+id/sleep_detail_fragment"
         android:name="io.github.sainak.trackmysleepquality.sleepdetail.SleepDetailFragment"
-        android:label="fragment_sleep_detail"
+        android:label="@string/sleep_detail_fragment"
         tools:layout="@layout/fragment_sleep_detail">
         <argument
             android:name="sleepNightKey"
