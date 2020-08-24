@@ -3,6 +3,7 @@ package io.github.sainak.trackmysleepquality
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -16,6 +17,12 @@ class MainActivity : AppCompatActivity() {
             DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         setSupportActionBar(binding.toolbar)
+
+        // Set view flags so that we can tell the system to draw behind the navBar and statusBar
+        @Suppress("DEPRECATION")// I know but we still have to deal with it
+        binding.root.systemUiVisibility =
+            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
