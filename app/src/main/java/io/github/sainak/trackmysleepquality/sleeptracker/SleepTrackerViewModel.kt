@@ -32,16 +32,16 @@ class SleepTrackerViewModel(dataSource: SleepDatabaseDao, application: Applicati
     /**
      * A boolean to hold the tracking status
      */
-    val trackingStarted = Transformations.map(tonight) {
+    val isTrackingStarted = Transformations.map(tonight) {
         it == null
     }
 
     /**
      * If there are any nights in the database, show the CLEAR button.
      */
-    val clearButtonVisible = Transformations.map(nights) {
-        it?.isNotEmpty()
-    }
+//    val clearButtonVisible = Transformations.map(nights) {
+//        it?.isNotEmpty()
+//    }
 
     /**
      * Request a toast by setting this value to true.

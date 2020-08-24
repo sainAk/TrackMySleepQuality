@@ -29,8 +29,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            android:onClick="@{() -> viewModel.trackingStarted ? viewModel.onStart() : viewModel.onStop()}"
-            app:fabTrackingIcon="@{viewModel.trackingStarted}" />
+            android:onClick="@{() -> viewModel.isTrackingStarted ? viewModel.onStart() : viewModel.onStop()}"
+            app:fabTrackingIcon="@{viewModel.isTrackingStarted}" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
