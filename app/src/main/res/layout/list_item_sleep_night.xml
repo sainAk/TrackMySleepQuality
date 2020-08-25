@@ -11,7 +11,7 @@
 
         <variable
             name="clickListener"
-            type="io.github.sainak.trackmysleepquality.sleeptracker.SleepNightListener" />
+            type="io.github.sainak.trackmysleepquality.ui.sleeptracker.SleepNightListener" />
     </data>
 
 

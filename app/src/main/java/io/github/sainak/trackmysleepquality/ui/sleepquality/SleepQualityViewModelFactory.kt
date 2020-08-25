@@ -1,4 +1,4 @@
-package io.github.sainak.trackmysleepquality.sleepquality
+package io.github.sainak.trackmysleepquality.ui.sleepquality
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

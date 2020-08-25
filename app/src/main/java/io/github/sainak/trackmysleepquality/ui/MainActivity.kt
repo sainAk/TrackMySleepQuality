@@ -1,4 +1,4 @@
-package io.github.sainak.trackmysleepquality
+package io.github.sainak.trackmysleepquality.ui
 
 import android.os.Bundle
 import android.view.Menu
@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import io.github.sainak.trackmysleepquality.R
 import io.github.sainak.trackmysleepquality.databinding.ActivityMainBinding
 import io.github.sainak.trackmysleepquality.util.addSystemWindowInsetToPadding
 

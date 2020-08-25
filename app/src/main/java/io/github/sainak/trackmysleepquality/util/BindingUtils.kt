@@ -1,12 +1,10 @@
-package io.github.sainak.trackmysleepquality.sleeptracker
+package io.github.sainak.trackmysleepquality.util
 
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.github.sainak.trackmysleepquality.R
-import io.github.sainak.trackmysleepquality.convertDurationToFormatted
-import io.github.sainak.trackmysleepquality.convertNumericQualityToString
 import io.github.sainak.trackmysleepquality.database.SleepNight
 
 

@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_sleep_tracker_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App.NoActionBar">
-        <activity android:name="io.github.sainak.trackmysleepquality.MainActivity">
+        <activity android:name="io.github.sainak.trackmysleepquality.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -10,14 +10,14 @@
 
         <variable
             name="sleepQualityViewModel"
-            type="io.github.sainak.trackmysleepquality.sleepquality.SleepQualityViewModel" />
+            type="io.github.sainak.trackmysleepquality.ui.sleepquality.SleepQualityViewModel" />
     </data>
 
     <!-- Start of the visible fragment layout using ConstraintLayout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".sleepquality.SleepQualityFragment">
+        tools:context=".ui.sleepquality.SleepQualityFragment">
 
         <TextView
             android:id="@+id/title_text"

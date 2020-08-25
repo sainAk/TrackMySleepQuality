@@ -1,6 +1,7 @@
-package io.github.sainak.trackmysleepquality
+package io.github.sainak.trackmysleepquality.util
 
 import android.content.res.Resources
+import io.github.sainak.trackmysleepquality.R
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit

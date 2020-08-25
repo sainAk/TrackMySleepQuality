@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="io.github.sainak.trackmysleepquality.sleeptracker.SleepTrackerViewModel" />
+            type="io.github.sainak.trackmysleepquality.ui.sleeptracker.SleepTrackerViewModel" />
     </data>
 
     <!-- Start of the visible fragment layout using ConstraintLayout -->

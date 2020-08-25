@@ -9,13 +9,13 @@
 
         <variable
             name="sleepDetailViewModel"
-            type="io.github.sainak.trackmysleepquality.sleepdetail.SleepDetailViewModel" />
+            type="io.github.sainak.trackmysleepquality.ui.sleepdetail.SleepDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".sleepdetail.SleepDetailFragment">
+        tools:context=".ui.sleepdetail.SleepDetailFragment">
 
         <ImageView
             android:id="@+id/quality_image"

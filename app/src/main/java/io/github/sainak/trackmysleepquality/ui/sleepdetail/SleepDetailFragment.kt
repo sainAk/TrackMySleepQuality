@@ -1,4 +1,4 @@
-package io.github.sainak.trackmysleepquality.sleepdetail
+package io.github.sainak.trackmysleepquality.ui.sleepdetail
 
 import android.os.Bundle
 import android.view.LayoutInflater

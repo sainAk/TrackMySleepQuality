@@ -1,4 +1,4 @@
-package io.github.sainak.trackmysleepquality.sleeptracker
+package io.github.sainak.trackmysleepquality.ui.sleeptracker
 
 
 import android.app.Application

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/sleep_tracker_fragment"
-        android:name="io.github.sainak.trackmysleepquality.sleeptracker.SleepTrackerFragment"
+        android:name="io.github.sainak.trackmysleepquality.ui.sleeptracker.SleepTrackerFragment"
         android:label="@string/sleep_tracker_fragment"
         tools:layout="@layout/fragment_sleep_tracker">
         <action
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/sleep_quality_fragment"
-        android:name="io.github.sainak.trackmysleepquality.sleepquality.SleepQualityFragment"
+        android:name="io.github.sainak.trackmysleepquality.ui.sleepquality.SleepQualityFragment"
         android:label="@string/sleep_quality_fragment"
         tools:layout="@layout/fragment_sleep_quality">
         <argument
@@ -39,7 +39,7 @@
 
     <fragment
         android:id="@+id/sleep_detail_fragment"
-        android:name="io.github.sainak.trackmysleepquality.sleepdetail.SleepDetailFragment"
+        android:name="io.github.sainak.trackmysleepquality.ui.sleepdetail.SleepDetailFragment"
         android:label="@string/sleep_detail_fragment"
         tools:layout="@layout/fragment_sleep_detail">
         <argument
