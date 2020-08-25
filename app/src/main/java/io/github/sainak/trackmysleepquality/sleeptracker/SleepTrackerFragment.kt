@@ -10,6 +10,8 @@ import com.google.android.material.snackbar.Snackbar
 import io.github.sainak.trackmysleepquality.R
 import io.github.sainak.trackmysleepquality.database.SleepDatabase
 import io.github.sainak.trackmysleepquality.databinding.FragmentSleepTrackerBinding
+import io.github.sainak.trackmysleepquality.util.addSystemWindowInsetToMargin
+import io.github.sainak.trackmysleepquality.util.addSystemWindowInsetToPadding
 
 
 /**
@@ -39,6 +41,10 @@ class SleepTrackerFragment : Fragment() {
         val binding: FragmentSleepTrackerBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_sleep_tracker, container, false
         )
+
+        // add insets to views
+        binding.fabTrackerContainer.addSystemWindowInsetToMargin(bottom = true)
+        binding.sleepList.addSystemWindowInsetToPadding(bottom = true)
 
         // Report that this fragment would like to participate in populating
         setHasOptionsMenu(true)
@@ -85,7 +91,7 @@ class SleepTrackerFragment : Fragment() {
         sleepTrackerViewModel.showSnackBarEvent.observe(viewLifecycleOwner, {
             if (it == true) { // Observed state is true.
                 Snackbar.make(
-                    binding.root,
+                    binding.fabTrackerContainer,
                     getString(R.string.cleared_message),
                     Snackbar.LENGTH_SHORT // How long to display the message.
                 ).show()

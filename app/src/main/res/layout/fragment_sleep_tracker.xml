@@ -21,16 +21,22 @@
             android:id="@+id/sleep_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clipToPadding="false"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_tracker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/fab_margin"
-            android:onClick="@{() -> viewModel.isTrackingStarted ? viewModel.onStart() : viewModel.onStop()}"
-            app:fabTrackingIcon="@{viewModel.isTrackingStarted}" />
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/fab_tracker_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_tracker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                android:onClick="@{() -> viewModel.isTrackingStarted ? viewModel.onStart() : viewModel.onStop()}"
+                app:fabTrackingIcon="@{viewModel.isTrackingStarted}" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

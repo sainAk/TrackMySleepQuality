@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import io.github.sainak.trackmysleepquality.databinding.ActivityMainBinding
+import io.github.sainak.trackmysleepquality.util.addSystemWindowInsetToPadding
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         binding.root.systemUiVisibility =
             View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
 
+        // add insets to views
+        binding.appbar.addSystemWindowInsetToPadding(top = true)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

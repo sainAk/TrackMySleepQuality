@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import io.github.sainak.trackmysleepquality.R
 import io.github.sainak.trackmysleepquality.database.SleepDatabase
 import io.github.sainak.trackmysleepquality.databinding.FragmentSleepDetailBinding
+import io.github.sainak.trackmysleepquality.util.addSystemWindowInsetToPadding
 
 
 /**
@@ -32,6 +33,8 @@ class SleepDetailFragment : Fragment() {
         val binding: FragmentSleepDetailBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_sleep_detail, container, false
         )
+
+        binding.root.addSystemWindowInsetToPadding(bottom = true)
 
         val application = requireNotNull(this.activity).application
         val arguments = SleepDetailFragmentArgs.fromBundle(arguments!!)
