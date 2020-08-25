@@ -10,6 +10,7 @@ import com.google.android.material.snackbar.Snackbar
 import io.github.sainak.trackmysleepquality.R
 import io.github.sainak.trackmysleepquality.database.SleepDatabase
 import io.github.sainak.trackmysleepquality.databinding.FragmentSleepTrackerBinding
+import io.github.sainak.trackmysleepquality.ui.SharedViewModel
 import io.github.sainak.trackmysleepquality.util.addSystemWindowInsetToPadding
 
 
@@ -74,6 +75,10 @@ class SleepTrackerFragment : Fragment() {
         // give the binding object a reference to it.
         binding.viewModel = sleepTrackerViewModel
 
+        // use the same instance of SharedViewModel as activity
+        val sharedViewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
+        binding.sharedViewModel = sharedViewModel
+
         val adapter = SleepNightAdapter(SleepNightListener { nightId ->
             sleepTrackerViewModel.onSleepNightClicked(nightId)
         })
@@ -129,6 +134,10 @@ class SleepTrackerFragment : Fragment() {
                 )
                 sleepTrackerViewModel.onSleepDetailNavigated()
             }
+        })
+
+        sleepTrackerViewModel.isTrackingStarted.observe(viewLifecycleOwner, {
+            sharedViewModel.trackingStatus.value = it
         })
 
         return binding.root

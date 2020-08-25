@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="SharedViewModel"
+            type="io.github.sainak.trackmysleepquality.ui.SharedViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
