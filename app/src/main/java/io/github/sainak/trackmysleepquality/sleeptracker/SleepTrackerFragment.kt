@@ -10,7 +10,6 @@ import com.google.android.material.snackbar.Snackbar
 import io.github.sainak.trackmysleepquality.R
 import io.github.sainak.trackmysleepquality.database.SleepDatabase
 import io.github.sainak.trackmysleepquality.databinding.FragmentSleepTrackerBinding
-import io.github.sainak.trackmysleepquality.util.addSystemWindowInsetToMargin
 import io.github.sainak.trackmysleepquality.util.addSystemWindowInsetToPadding
 
 
@@ -43,7 +42,7 @@ class SleepTrackerFragment : Fragment() {
         )
 
         // add insets to views
-        binding.fabTrackerContainer.addSystemWindowInsetToMargin(bottom = true)
+        binding.fabTrackerContainer.addSystemWindowInsetToPadding(bottom = true)
         binding.sleepList.addSystemWindowInsetToPadding(bottom = true)
 
         // Report that this fragment would like to participate in populating
