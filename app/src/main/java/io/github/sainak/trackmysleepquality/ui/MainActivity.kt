@@ -10,7 +10,6 @@ import androidx.databinding.DataBindingUtil
 import io.github.sainak.trackmysleepquality.R
 import io.github.sainak.trackmysleepquality.databinding.ActivityMainBinding
 import io.github.sainak.trackmysleepquality.util.addSystemWindowInsetToMargin
-import io.github.sainak.trackmysleepquality.util.addSystemWindowInsetToPadding
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         hideFab()
 
         // add insets to views
-        binding.appbar.addSystemWindowInsetToPadding(top = true)
+        binding.toolbar.addSystemWindowInsetToMargin(top = true)
         binding.fabTracker.addSystemWindowInsetToMargin(bottom = true)
     }
 
