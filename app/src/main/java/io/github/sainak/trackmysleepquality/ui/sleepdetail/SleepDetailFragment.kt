@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import io.github.sainak.trackmysleepquality.R
 import io.github.sainak.trackmysleepquality.database.SleepDatabase
 import io.github.sainak.trackmysleepquality.databinding.FragmentSleepDetailBinding
+import io.github.sainak.trackmysleepquality.ui.MainActivity
 import io.github.sainak.trackmysleepquality.util.addSystemWindowInsetToPadding
 
 
@@ -63,6 +64,8 @@ class SleepDetailFragment : Fragment() {
                 sleepDetailViewModel.doneNavigating()
             }
         })
+
+        (activity as MainActivity).hideFab()
 
         return binding.root
     }

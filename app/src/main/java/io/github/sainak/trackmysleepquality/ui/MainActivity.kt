@@ -11,14 +11,17 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import io.github.sainak.trackmysleepquality.R
 import io.github.sainak.trackmysleepquality.databinding.ActivityMainBinding
+import io.github.sainak.trackmysleepquality.util.addSystemWindowInsetToMargin
 import io.github.sainak.trackmysleepquality.util.addSystemWindowInsetToPadding
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding: ActivityMainBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         /** Create an instance of [SharedViewModel] */
         val sharedViewModel = ViewModelProvider(this)[SharedViewModel::class.java]
@@ -37,8 +40,26 @@ class MainActivity : AppCompatActivity() {
         binding.root.systemUiVisibility =
             View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
 
+        hideFab()
+
         // add insets to views
         binding.appbar.addSystemWindowInsetToPadding(top = true)
+        binding.fabTracker.addSystemWindowInsetToMargin(bottom = true)
+    }
+
+    fun showFabWithListener(function: () -> Unit, imgSrcId: Int) {
+        binding.fabTracker.apply {
+            setOnClickListener { function() }
+            setImageResource(imgSrcId)
+            show()
+        }
+    }
+
+    fun hideFab() {
+        binding.fabTracker.apply {
+            setOnClickListener(null) // should remove all attached listeners
+            hide()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -3,7 +3,6 @@ package io.github.sainak.trackmysleepquality.util
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import io.github.sainak.trackmysleepquality.R
 import io.github.sainak.trackmysleepquality.database.SleepNight
 
@@ -37,9 +36,4 @@ fun ImageView.setSleepImage(item: SleepNight?) {
             }
         )
     }
-}
-
-@BindingAdapter("app:fabTrackingIcon")
-fun setImageResource(fab: FloatingActionButton, trackingStatus: Boolean) {
-    fab.setImageResource(if (trackingStatus) R.drawable.ic_play_24 else R.drawable.ic_pause_24)
 }

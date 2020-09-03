@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import io.github.sainak.trackmysleepquality.R
 import io.github.sainak.trackmysleepquality.database.SleepDatabase
 import io.github.sainak.trackmysleepquality.databinding.FragmentSleepQualityBinding
+import io.github.sainak.trackmysleepquality.ui.MainActivity
 
 /**
  * Fragment that displays a list of clickable icons,
@@ -64,6 +65,9 @@ class SleepQualityFragment : Fragment() {
                 sleepQualityViewModel.doneNavigating()
             }
         })
+
+        (activity as MainActivity).hideFab()
+
         return binding.root
     }
 }

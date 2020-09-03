@@ -10,6 +10,7 @@ import com.google.android.material.snackbar.Snackbar
 import io.github.sainak.trackmysleepquality.R
 import io.github.sainak.trackmysleepquality.database.SleepDatabase
 import io.github.sainak.trackmysleepquality.databinding.FragmentSleepTrackerBinding
+import io.github.sainak.trackmysleepquality.ui.MainActivity
 import io.github.sainak.trackmysleepquality.ui.SharedViewModel
 import io.github.sainak.trackmysleepquality.util.addSystemWindowInsetToPadding
 
@@ -22,7 +23,9 @@ import io.github.sainak.trackmysleepquality.util.addSystemWindowInsetToPadding
  */
 class SleepTrackerFragment : Fragment() {
 
+    private lateinit var mainActivity: MainActivity
     private lateinit var sleepTrackerViewModel: SleepTrackerViewModel
+
     /**
      * Called when the Fragment is ready to display content to the screen.
      *
@@ -37,13 +40,13 @@ class SleepTrackerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        mainActivity = (activity as MainActivity)
         // Get a reference to the binding object and inflate the fragment views.
         val binding: FragmentSleepTrackerBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_sleep_tracker, container, false
         )
 
         // add insets to views
-        binding.fabTrackerContainer.addSystemWindowInsetToPadding(bottom = true)
         binding.sleepList.addSystemWindowInsetToPadding(bottom = true)
 
         // Report that this fragment would like to participate in populating
@@ -95,7 +98,7 @@ class SleepTrackerFragment : Fragment() {
         sleepTrackerViewModel.showSnackBarEvent.observe(viewLifecycleOwner, {
             if (it == true) { // Observed state is true.
                 Snackbar.make(
-                    binding.fabTrackerContainer,
+                    mainActivity.binding.root,
                     getString(R.string.cleared_message),
                     Snackbar.LENGTH_SHORT // How long to display the message.
                 ).show()
@@ -136,8 +139,18 @@ class SleepTrackerFragment : Fragment() {
             }
         })
 
-        sleepTrackerViewModel.isTrackingStarted.observe(viewLifecycleOwner, {
-            sharedViewModel.trackingStatus.value = it
+        sleepTrackerViewModel.isTrackingStarted.observe(viewLifecycleOwner, { trackingStatus ->
+            mainActivity.apply {
+                //hideFab()
+                if (trackingStatus) showFabWithListener(
+                    { sleepTrackerViewModel.onStop() },
+                    R.drawable.ic_pause_24
+                )
+                else showFabWithListener(
+                    { sleepTrackerViewModel.onStart() },
+                    R.drawable.ic_play_24
+                )
+            }
         })
 
         return binding.root
