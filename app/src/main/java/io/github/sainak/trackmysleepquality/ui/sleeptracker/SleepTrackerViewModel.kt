@@ -33,7 +33,7 @@ class SleepTrackerViewModel(dataSource: SleepDatabaseDao, application: Applicati
      * A boolean to hold the tracking status
      */
     val isTrackingStarted = Transformations.map(tonight) {
-        it == null
+        it != null
     }
 
     /**
