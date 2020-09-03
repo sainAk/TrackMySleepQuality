@@ -10,10 +10,6 @@
         <variable
             name="viewModel"
             type="io.github.sainak.trackmysleepquality.ui.sleeptracker.SleepTrackerViewModel" />
-
-        <variable
-            name="SharedViewModel"
-            type="io.github.sainak.trackmysleepquality.ui.SharedViewModel" />
     </data>
 
     <!-- Start of the visible fragment layout using CoordinatorLayout -->

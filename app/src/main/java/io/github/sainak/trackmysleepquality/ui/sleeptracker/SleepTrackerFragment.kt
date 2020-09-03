@@ -11,7 +11,6 @@ import io.github.sainak.trackmysleepquality.R
 import io.github.sainak.trackmysleepquality.database.SleepDatabase
 import io.github.sainak.trackmysleepquality.databinding.FragmentSleepTrackerBinding
 import io.github.sainak.trackmysleepquality.ui.MainActivity
-import io.github.sainak.trackmysleepquality.ui.SharedViewModel
 import io.github.sainak.trackmysleepquality.util.addSystemWindowInsetToPadding
 
 
@@ -77,10 +76,6 @@ class SleepTrackerFragment : Fragment() {
         // To use the View Model with data binding, you have to explicitly
         // give the binding object a reference to it.
         binding.viewModel = sleepTrackerViewModel
-
-        // use the same instance of SharedViewModel as activity
-        val sharedViewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
-        binding.sharedViewModel = sharedViewModel
 
         val adapter = SleepNightAdapter(SleepNightListener { nightId ->
             sleepTrackerViewModel.onSleepNightClicked(nightId)

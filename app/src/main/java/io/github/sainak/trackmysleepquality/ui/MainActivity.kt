@@ -1,14 +1,12 @@
 package io.github.sainak.trackmysleepquality.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import io.github.sainak.trackmysleepquality.R
 import io.github.sainak.trackmysleepquality.databinding.ActivityMainBinding
 import io.github.sainak.trackmysleepquality.util.addSystemWindowInsetToMargin
@@ -22,16 +20,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
-        /** Create an instance of [SharedViewModel] */
-        val sharedViewModel = ViewModelProvider(this)[SharedViewModel::class.java]
-
-        binding.sharedViewModel = sharedViewModel
-
-        // debug
-        sharedViewModel.trackingStatus.observe(this, {
-            Log.d("trackingStatus", "onCreate: $it ")
-        })
 
         setSupportActionBar(binding.toolbar)
 
