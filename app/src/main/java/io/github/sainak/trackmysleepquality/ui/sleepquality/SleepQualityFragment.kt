@@ -66,7 +66,10 @@ class SleepQualityFragment : Fragment() {
             }
         })
 
-        (activity as MainActivity).hideFab()
+        (activity as MainActivity).apply {
+            showToolbar()
+            hideFab()
+        }
 
         return binding.root
     }
